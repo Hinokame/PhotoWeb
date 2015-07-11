@@ -92,10 +92,8 @@
         <configuration>
           <assembleDirectory>target</assembleDirectory>
           <programs>
-            <program>
-              <mainClass>com.andrew.StartServer</mainClass>
-              <name>webapp</name>
-            </program>
+
+            
           </programs>
         </configuration>
         <executions>
