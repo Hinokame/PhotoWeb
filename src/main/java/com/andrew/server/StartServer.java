@@ -11,7 +11,7 @@ public class StartServer{
         String webappDirLocation = "src/main/webapp/";
         Tomcat tomcat = new Tomcat();
 
-        tomcat.addUser("Hinokame", "hino");
+        tomcat.addUser("Hinokame", "hino"); //jj
         tomcat.addRole("Hinokame", "admin");
 
 
