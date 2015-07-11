@@ -1,10 +1,9 @@
-package com.andrew;
+package com.andrew.server;
 
 import org.apache.catalina.LifecycleException;
 import org.apache.catalina.startup.Tomcat;
 
 import javax.servlet.ServletException;
-import javax.swing.*;
 import java.io.File;
 
 public class StartServer{
@@ -12,11 +11,15 @@ public class StartServer{
         String webappDirLocation = "src/main/webapp/";
         Tomcat tomcat = new Tomcat();
 
+        tomcat.addUser("Hinokame", "hino");
+        tomcat.addRole("Hinokame", "admin");
+
+
         //The port that we should run on can be set into an environment variable
         //Look for that variable and default to 8080 if it isn't there.
         String webPort = System.getenv("PORT");
         if(webPort == null || webPort.isEmpty()) {
-            webPort = "8080";
+            webPort = "8090";
         }
 
         tomcat.setPort(Integer.valueOf(webPort));
@@ -33,17 +36,7 @@ public class StartServer{
         } catch (LifecycleException e) {
             e.printStackTrace();
         }
-        //Create and set up the window.
-        JFrame frame = new JFrame("HelloWorldSwing");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        //Add the ubiquitous "Hello World" label.
-        JLabel label = new JLabel("Hello World");
-        frame.getContentPane().add(label);
-
-        //Display the window.
-        frame.pack();
-        frame.setVisible(true);
         tomcat.getServer().await();
     }
 }
