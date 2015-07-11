@@ -80,7 +80,7 @@
         <version>2.3</version>
         <configuration>
           <warName>${name}</warName>
-          <!--outputDirectory>C:\ANDRIUS\INTELJ\Server\apache-tomcat-8.0.24\webapps</outputDirectory -->
+          <outputDirectory>C:\ANDRIUS\INTELJ\Server\apache-tomcat-8.0.24\webapps</outputDirectory >
 
         </configuration>
       </plugin>
