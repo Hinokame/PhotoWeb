@@ -11,8 +11,8 @@ public class StartServer{
         String webappDirLocation = "src/main/webapp/";
         Tomcat tomcat = new Tomcat();
 
-        tomcat.addUser("deployer", "deployer"); //jj
-        tomcat.addRole("deployer", "manager-script");
+        tomcat.addUser("hino", "hino"); //jj
+        tomcat.addRole("hino", "manager-gui");
 
 
         //The port that we should run on can be set into an environment variable

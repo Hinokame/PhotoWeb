@@ -93,7 +93,7 @@
           <assembleDirectory>target</assembleDirectory>
           <programs>
 
-            
+
           </programs>
         </configuration>
         <executions>
