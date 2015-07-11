@@ -5,7 +5,7 @@
   <artifactId>AndrewWeb</artifactId>
   <packaging>war</packaging>
   <version>1.0-SNAPSHOT</version>
-  <name>AndrewWeb Maven Webapp</name>
+  <name>photoWeb</name>
   <url>http://maven.apache.org</url>
 
   <properties>
