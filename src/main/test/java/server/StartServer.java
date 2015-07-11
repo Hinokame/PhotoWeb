@@ -1,4 +1,4 @@
-package com.andrew.server;
+package server;
 
 import org.apache.catalina.LifecycleException;
 import org.apache.catalina.startup.Tomcat;
@@ -11,7 +11,7 @@ public class StartServer{
         String webappDirLocation = "src/main/webapp/";
         Tomcat tomcat = new Tomcat();
 
-        tomcat.addUser("hino", "hino"); //jj
+        tomcat.addUser("hino", "hino");
         tomcat.addRole("hino", "manager-gui");
 
 

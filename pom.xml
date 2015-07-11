@@ -1,4 +1,4 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.andrew</groupId>
@@ -7,16 +7,27 @@
   <version>1.0-SNAPSHOT</version>
   <url>http://maven.apache.org</url>
 
+  <!-- Properties -->
   <properties>
+    <tomcat.server.directory>C:\ANDRIUS\INTELJ\Server\apache-tomcat-8.0.24\webapps</tomcat.server.directory>
     <tomcat.version>8.0.24</tomcat.version>
+    <junit.version>3.8.1</junit.version>
+    <jdk.version>1.6</jdk.version>
+    <maven.compiler.version>3.3</maven.compiler.version>
+    <maven.assembly.version>2.5.5</maven.assembly.version>
+    <maven.appassembler.version>1.1.1</maven.appassembler.version>
+    <maven.war.version>2.3</maven.war.version>
   </properties>
+
+  <!-- all dependecies -->
   <dependencies>
+    <!-- help test java code -->
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>3.8.1</version>
+      <version>${junit.version}</version>
     </dependency>
-
+    <!-- EMBEDED TEST TOMCAT SERVER -->
     <dependency>
       <groupId>org.apache.tomcat.embed</groupId>
       <artifactId>tomcat-embed-core</artifactId>
@@ -32,67 +43,45 @@
       <artifactId>tomcat-embed-jasper</artifactId>
       <version>${tomcat.version}</version>
     </dependency>
-    <dependency>
-      <groupId>org.apache.tomcat</groupId>
-      <artifactId>tomcat-jasper</artifactId>
-      <version>${tomcat.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.tomcat</groupId>
-      <artifactId>tomcat-jasper-el</artifactId>
-      <version>${tomcat.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.tomcat</groupId>
-      <artifactId>tomcat-jsp-api</artifactId>
-      <version>${tomcat.version}</version>
-    </dependency>
-
   </dependencies>
+
+  <!-- BUILD PHASE -->
   <build>
     <finalName>AndrewWeb</finalName>
+    <!-- Final Project name -->
     <plugins>
+      <!-- Plugin for maven compiler -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.3</version>
+        <version>${maven.compiler.version}</version>
         <configuration>
-          <source>1.6</source>
-          <target>1.6</target>
+          <source>${jdk.version}</source>
+          <target>${jdk.version}</target>
         </configuration>
       </plugin>
       <plugin>
-      <!-- NOTE: We don't need a groupId specification because the group is
-           org.apache.maven.plugins ...which is assumed by default.
-       -->
+        <!-- The Assembly Plugin for Maven is primarily intended to allow users to aggregate the project output
+         along with its dependencies, modules, site documentation, and other files into a single distributable archive. -->
       <artifactId>maven-assembly-plugin</artifactId>
-      <version>2.5.5</version>
+        <version>${maven.assembly.version}</version>
       <configuration>
         <descriptorRefs>
+          <!-- The assembled archive contains the binary JAR produced by running mvn package plus any README,
+           LICENSE, and NOTICE files available in the project root directory.-->
           <descriptorRef>jar-with-dependencies</descriptorRef>
         </descriptorRefs>
       </configuration>
       </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-war-plugin</artifactId>
-        <version>2.3</version>
-        <configuration>
-          <warName>${name}</warName>
-          <outputDirectory>C:\ANDRIUS\INTELJ\Server\apache-tomcat-8.0.24\webapps</outputDirectory >
 
-        </configuration>
-      </plugin>
-
+      <!-- The Application Assembler Plugin is a Maven plugin for generating scripts for starting java applications.-->
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>appassembler-maven-plugin</artifactId>
-        <version>1.1.1</version>
+        <version>${maven.appassembler.version}</version>
         <configuration>
           <assembleDirectory>target</assembleDirectory>
           <programs>
-
-
           </programs>
         </configuration>
         <executions>
@@ -104,6 +93,17 @@
           </execution>
         </executions>
       </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>${maven.war.version}</version>
+        <configuration>
+          <warName>${name}</warName>
+          <outputDirectory>${tomcat.server.directory}</outputDirectory>
+        </configuration>
+      </plugin>
+
     </plugins>
   </build>
 </project>
