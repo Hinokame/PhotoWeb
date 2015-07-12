@@ -7,12 +7,27 @@ import javax.servlet.ServletException;
 import java.io.File;
 
 public class StartServer{
+    final static String webappDirLocation = "src/main/webapp/";
+    static String user = "hino";
+    static String role = "manager-gui";
+    static String pass = "hino";
     public static void main(String... args){
-        String webappDirLocation = "src/main/webapp/";
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+               /* File file = new File("C:\\ANDRIUS\\INTELJ\\Server\\apache-tomcat-8.0.24\\conf\\tomcat-users.xml");
+                Path path = file.toPath();
+                FileHelper fileHelper = new FileHelper();
+                fileHelper.lookForFile(path.toFile());
+                */
+                MainScreen mainScreen = new MainScreen();
+                MainScreen.run();
+            }
+        });
+
         Tomcat tomcat = new Tomcat();
 
-        tomcat.addUser("hino", "hino");
-        tomcat.addRole("hino", "manager-gui");
+        tomcat.addUser(user, pass);
+        tomcat.addRole(user, role);
 
 
         //The port that we should run on can be set into an environment variable

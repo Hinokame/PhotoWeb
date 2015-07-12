@@ -12,7 +12,7 @@
     <tomcat.server.directory>C:\ANDRIUS\INTELJ\Server\apache-tomcat-8.0.24\webapps</tomcat.server.directory>
     <tomcat.version>8.0.24</tomcat.version>
     <junit.version>3.8.1</junit.version>
-    <jdk.version>1.6</jdk.version>
+    <jdk.version>1.8</jdk.version>
     <maven.compiler.version>3.3</maven.compiler.version>
     <maven.assembly.version>2.5.5</maven.assembly.version>
     <maven.appassembler.version>1.1.1</maven.appassembler.version>
