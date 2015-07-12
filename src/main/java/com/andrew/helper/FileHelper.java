@@ -1,4 +1,4 @@
-package com.andrew;
+package com.andrew.helper;
 
 import com.sun.org.apache.xerces.internal.parsers.DOMParser;
 import org.w3c.dom.Document;
