@@ -43,6 +43,8 @@
       <artifactId>tomcat-embed-jasper</artifactId>
       <version>${tomcat.version}</version>
     </dependency>
+
+
   </dependencies>
 
   <!-- BUILD PHASE -->
@@ -83,6 +85,7 @@
           <assembleDirectory>target</assembleDirectory>
           <programs>
           </programs>
+
         </configuration>
         <executions>
           <execution>
