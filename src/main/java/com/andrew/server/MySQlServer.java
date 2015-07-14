@@ -1,13 +1,8 @@
 package com.andrew.server;
 
 
-import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
-
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-
 public class MySQlServer {
+    /*
     public static void main(String... args) {
         MysqlDataSource dataSource = new MysqlDataSource();
         // set MySql data-properties to access:
@@ -31,4 +26,5 @@ public class MySQlServer {
         }
 
     }
+    */
 }
