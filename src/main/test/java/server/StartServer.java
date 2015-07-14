@@ -19,7 +19,7 @@ public class StartServer{
                 FileHelper fileHelper = new FileHelper();
                 fileHelper.lookForFile(path.toFile());
                 */
-                MainScreen mainScreen = new MainScreen();
+
                 MainScreen.run();
             }
         });
